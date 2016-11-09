@@ -97,3 +97,6 @@ endTotalTime = datetime.datetime.now()
 totalTime = endTotalTime - startTime
 print 'Time in MilliSeconds for parsing and Loading into a Dataframe:%s' % ((totalTime.total_seconds() * 1000))
 
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)

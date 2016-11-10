@@ -1,7 +1,11 @@
+import os
 from robobrowser import RoboBrowser
 import BeautifulSoup
 import pandas as pd
+import psycopg2
+import urlparse
 import datetime
+from sqlalchemy import create_engine
 
 
 login_url = "https://merituspayment.com/merchants/frmLogin.aspx"
@@ -90,11 +94,22 @@ for row in table.findAll('tr')[1:-1]:
 columns = ('Report Date', 'Trans Date', 'Case No', 'Auth Code', 'Trans Type', 'CB Type', 'Card No', 'Amount', 'CBReasonCodeDesc')
 ChargeBackDetails = pd.DataFrame(appended_data)   
 ChargeBackDetails.columns = columns
-writer=pd.ExcelWriter('C:\Users\karthikm\Desktop\chargeback.xlsx')
-ChargeBackDetails.to_excel(writer,'sheet1',index=False)
-writer.save()
+#writer=pd.ExcelWriter('C:\Users\karthikm\Desktop\chargeback.xlsx')
+#ChargeBackDetails.to_excel(writer,'sheet1',index=False)
+#writer.save()
+urlparse.uses_netloc.append("postgres")
+url = urlparse.urlparse(os.environ["DATABASE_URL"])
+
+conn = psycopg2.connect(
+    database=url.path[1:],
+    user=url.username,
+    password=url.password,
+    host=url.hostname,
+    port=url.port
+)
+ChargeBackDetails.to_sql("chargeback",conn)
 endTotalTime = datetime.datetime.now()
 totalTime = endTotalTime - startTime
 print 'Time in MilliSeconds for parsing and Loading into a Dataframe:%s' % ((totalTime.total_seconds() * 1000))
-print ChargeBackDetails
+
 

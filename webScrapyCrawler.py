@@ -97,7 +97,7 @@ ChargeBackDetails.columns = columns
 #writer=pd.ExcelWriter('C:\Users\karthikm\Desktop\chargeback.xlsx')
 #ChargeBackDetails.to_excel(writer,'sheet1',index=False)
 #writer.save()
-urlparse.uses_netloc.append("postgres")
+
 url = urlparse.urlparse(os.environ["postgres://yvhvyxpseaeieg:_2vzlg8xyRbPDB9p9H601ritkv@ec2-54-235-120-32.compute-1.amazonaws.com:5432/d162fuqv39qdlm"])
 
 conn = psycopg2.connect(

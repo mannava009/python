@@ -91,7 +91,7 @@ for row in table.findAll('tr')[1:-1]:
     record = (ReportDate, TransDate, CaseNo, AuthCode, TransType, CBType, CardNo, Amount, CBReasonCodeDesc)
     appended_data.append(record)
 
-columns = ('Report Date', 'Trans Date', 'Case No', 'Auth Code', 'Trans Type', 'CB Type', 'Card No', 'Amount', 'CBReasonCodeDesc')
+columns = ('report_date', 'trans_date', 'case_no', 'auth_code', 'trans_type', 'cb_type', 'card_no', 'amount', 'cb_reason_code_desc')
 ChargeBackDetails = pd.DataFrame(appended_data)   
 ChargeBackDetails.columns = columns
 #writer=pd.ExcelWriter('C:\Users\karthikm\Desktop\chargeback.xlsx')
@@ -99,7 +99,7 @@ ChargeBackDetails.columns = columns
 #writer.save()
 
 engine=create_engine("postgres://yvhvyxpseaeieg:_2vzlg8xyRbPDB9p9H601ritkv@ec2-54-235-120-32.compute-1.amazonaws.com:5432/d162fuqv39qdlm")
-ChargeBackDetails.to_sql("chargeback",engine)
+ChargeBackDetails.to_sql("chargeback_details",engine)
 endTotalTime = datetime.datetime.now()
 totalTime = endTotalTime - startTime
 print 'Time in MilliSeconds for parsing and Loading into a Dataframe:%s' % ((totalTime.total_seconds() * 1000))

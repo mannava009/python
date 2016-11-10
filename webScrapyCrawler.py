@@ -98,7 +98,7 @@ ChargeBackDetails.columns = columns
 #ChargeBackDetails.to_excel(writer,'sheet1',index=False)
 #writer.save()
 
-url = urlparse.urlparse(os.environ["postgres://yvhvyxpseaeieg:_2vzlg8xyRbPDB9p9H601ritkv@ec2-54-235-120-32.compute-1.amazonaws.com:5432/d162fuqv39qdlm"])
+url = urlparse.urlparse("postgres://yvhvyxpseaeieg:_2vzlg8xyRbPDB9p9H601ritkv@ec2-54-235-120-32.compute-1.amazonaws.com:5432/d162fuqv39qdlm")
 
 conn = psycopg2.connect(
     database=url.path[1:],

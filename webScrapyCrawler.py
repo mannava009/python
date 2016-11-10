@@ -98,16 +98,8 @@ ChargeBackDetails.columns = columns
 #ChargeBackDetails.to_excel(writer,'sheet1',index=False)
 #writer.save()
 
-url = urlparse.urlparse("postgres://yvhvyxpseaeieg:_2vzlg8xyRbPDB9p9H601ritkv@ec2-54-235-120-32.compute-1.amazonaws.com:5432/d162fuqv39qdlm")
-
-conn = psycopg2.connect(
-    database=url.path[1:],
-    user=url.username,
-    password=url.password,
-    host=url.hostname,
-    port=url.port
-)
-ChargeBackDetails.to_sql("chargeback",conn)
+engine=create_engine("postgres://yvhvyxpseaeieg:_2vzlg8xyRbPDB9p9H601ritkv@ec2-54-235-120-32.compute-1.amazonaws.com:5432/d162fuqv39qdlm")
+ChargeBackDetails.to_sql("chargeback",engine)
 endTotalTime = datetime.datetime.now()
 totalTime = endTotalTime - startTime
 print 'Time in MilliSeconds for parsing and Loading into a Dataframe:%s' % ((totalTime.total_seconds() * 1000))

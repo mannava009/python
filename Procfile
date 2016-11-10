@@ -1,1 +1,1 @@
-web: python webScrapyCrawler.py
+bot: python webScrapyCrawler.py

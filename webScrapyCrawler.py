@@ -3,7 +3,7 @@ from robobrowser import RoboBrowser
 import BeautifulSoup
 import pandas as pd
 import datetime
-from flask import Flask
+
 
 login_url = "https://merituspayment.com/merchants/frmLogin.aspx"
 # Step1 : GET Request for login page
@@ -97,8 +97,5 @@ writer.save()
 endTotalTime = datetime.datetime.now()
 totalTime = endTotalTime - startTime
 print 'Time in MilliSeconds for parsing and Loading into a Dataframe:%s' % ((totalTime.total_seconds() * 1000))
-ChargeBackdetails=os.environ.get(ChargeBackDetails)
 
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
+

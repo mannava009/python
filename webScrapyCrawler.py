@@ -98,7 +98,7 @@ ChargeBackDetails.columns = columns
 #ChargeBackDetails.to_excel(writer,'sheet1',index=False)
 #writer.save()
 
-engine=create_engine("postgres://yvhvyxpseaeieg:_2vzlg8xyRbPDB9p9H601ritkv@ec2-54-235-120-32.compute-1.amazonaws.com:5432/d162fuqv39qdlm")
+engine=create_engine("postgres://zufqciuldrxafz:djszZt8A0ED7GSc0OHBEqiThLK@ec2-54-235-155-172.compute-1.amazonaws.com:5432/d5sgh7qn7jdaga")
 ChargeBackDetails.to_sql("chargeback_details",engine)
 endTotalTime = datetime.datetime.now()
 totalTime = endTotalTime - startTime

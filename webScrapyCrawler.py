@@ -101,7 +101,7 @@ def paySafe():
     #ChargeBackDetails.to_excel(writer, 'sheet1', index=False)
     #writer.save()
     engine=create_engine("postgres://zufqciuldrxafz:djszZt8A0ED7GSc0OHBEqiThLK@ec2-54-235-155-172.compute-1.amazonaws.com:5432/d5sgh7qn7jdaga")
-    ChargeBackDetails.to_sql("chargeback_details",engine)
+    ChargeBackDetails.to_sql("chargeback_details",engine,if_exists="replace")
     endTotalTime = datetime.datetime.now()
     totalTime = endTotalTime - startTime
     print 'Time in MilliSeconds for parsing and Loading into a Dataframe:%s' % ((totalTime.total_seconds() * 1000))

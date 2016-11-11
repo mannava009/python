@@ -104,7 +104,7 @@ def paySafe():
     ChargeBackDetails.to_sql("chargeback_details",engine,if_exists="replace")
     endTotalTime = datetime.datetime.now()
     totalTime = endTotalTime - startTime
-    print 'Time in MilliSeconds for parsing and Loading into a Dataframe:%s' % ((totalTime.total_seconds() * 1000))
+    print 'Time in MilliSeconds for parsing and Loading into a Database:%s' % ((totalTime.total_seconds() * 1000))
     return ChargeBackDetails
 a=paySafe()
 sched.start()    

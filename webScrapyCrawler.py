@@ -100,7 +100,7 @@ def paySafe():
     #writer = pd.ExcelWriter('C:\Users\karthikm\Desktop\chargeback.xlsx')
     #ChargeBackDetails.to_excel(writer, 'sheet1', index=False)
     #writer.save()
-    engine=create_engine("postgres://zufqciuldrxafz:djszZt8A0ED7GSc0OHBEqiThLK@ec2-54-235-155-172.compute-1.amazonaws.com:5432/d5sgh7qn7jdaga")
+    engine=create_engine("postgres://gsyorjbgdnmaex:pT_q3BALcPkVUuvpjYCOMYD1zv@ec2-23-21-238-76.compute-1.amazonaws.com:5432/dbmh4ld11aqgvi")
     ChargeBackDetails.to_sql("chargeback_details",engine,if_exists="replace")
     endTotalTime = datetime.datetime.now()
     totalTime = endTotalTime - startTime

@@ -2,11 +2,11 @@ import datetime
 import BeautifulSoup
 from robobrowser import RoboBrowser
 import pandas as pd
-from apscheduler.schedulers.blocking import BlockingScheduler
-from sqlalchemy import create_engine
+#from apscheduler.schedulers.blocking import BlockingScheduler
+#from sqlalchemy import create_engine
 
-sched = BlockingScheduler()
-@sched.scheduled_job('interval', seconds=10)
+#sched = BlockingScheduler()
+#@sched.scheduled_job('interval', seconds=10)
 def paySafe():
     login_url = "https://merituspayment.com/merchants/frmLogin.aspx"
     
@@ -98,8 +98,8 @@ def paySafe():
     columns = ('Report Date', 'Trans Date', 'Case No', 'Auth Code', 'Trans Type', 'CB Type', 'Card No', 'Amount', 'CBReasonCodeDesc')
     ChargeBackDetails = pd.DataFrame(appended_data)   
     ChargeBackDetails.columns = columns
-    engine=create_engine("postgres://gsyorjbgdnmaex:pT_q3BALcPkVUuvpjYCOMYD1zv@ec2-23-21-238-76.compute-1.amazonaws.com:5432/dbmh4ld11aqgvi")
-    ChargeBackDetails.to_sql("chargeback_details",engine,if_exists="replace")
+   # engine=create_engine("postgres://gsyorjbgdnmaex:pT_q3BALcPkVUuvpjYCOMYD1zv@ec2-23-21-238-76.compute-1.amazonaws.com:5432/dbmh4ld11aqgvi")
+  #  ChargeBackDetails.to_sql("chargeback_details",engine,if_exists="replace")
     endTotalTime = datetime.datetime.now()
     totalTime = endTotalTime - startTime
     print 'Time in MilliSeconds for parsing and Loading into a Dataframe:%s' % ((totalTime.total_seconds() * 1000))
@@ -107,4 +107,4 @@ def paySafe():
 
 paySafe()
 
-sched.start()    
+#sched.start()    

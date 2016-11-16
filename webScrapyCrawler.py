@@ -3,6 +3,7 @@ import BeautifulSoup
 from robobrowser import RoboBrowser
 import pandas as pd
 from apscheduler.schedulers.blocking import BlockingScheduler
+from sqlalchemy import create_engine
 
 sched = BlockingScheduler()
 @sched.scheduled_job('interval', seconds=10)

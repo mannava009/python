@@ -3,7 +3,7 @@ import BeautifulSoup
 from robobrowser import RoboBrowser
 import pandas as pd
 import sqlalchemy as sql
-from pymongo import MongoClient
+
 
 
 login_url = "https://merituspayment.com/merchants/frmLogin.aspx"

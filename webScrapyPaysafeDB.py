@@ -112,7 +112,7 @@ del ChargeBackDetails['cardno']
 #writer.save()
 
 #Step7:Loading into MYSQL Databse
-engine = sql.create_engine("mysql+mysqlconnector://root:1Base1t@Ibasesqldb:3306/cb360automation")
+'''engine = sql.create_engine("mysql+mysqlconnector://root:1Base1t@Ibasesqldb:3306/cb360automation")
 ChargeBackDetails.to_sql('chargeback_automation',engine,if_exists='append',index=False)
 
 #Step8:Loading into MongoDB
@@ -123,4 +123,4 @@ paysafe_python.insert_many(ChargeBackDetails.to_dict('records'))
 
 endTotalTime = datetime.datetime.now()
 totalTime = endTotalTime - startTime
-print 'Time in MilliSeconds for parsing and Loading into a Database:%s' % ((totalTime.total_seconds() * 1000))
+print 'Time in MilliSeconds for parsing and Loading into a Database:%s' % ((totalTime.total_seconds() * 1000))'''

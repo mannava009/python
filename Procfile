@@ -1,1 +1,1 @@
-bot: python webScrapyCrawler.py
+bot: python webScrapyPaysafeDB.py
